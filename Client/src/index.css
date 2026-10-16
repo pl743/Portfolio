@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+
+/* DARK THEME - default */
+:root {
+  color-scheme: dark;
+
+  --bg-primary: #080d1b;
+  --bg-secondary: #111a30;
+  --bg-card: #101a2e;
+  --text-primary: #f8fafc;
+  --text-secondary: #b8c3d9;
+  --border-color: #26344d;
+  --accent-color: #60a5fa;
+}
+
+/* LIGHT THEME */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --bg-primary: #f4f7fc;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --text-primary: #172033;
+  --text-secondary: #53627a;
+  --border-color: #dce4f0;
+  --accent-color: #2563eb;
+}
+
+/* Apply theme globally */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+main {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+section {
+  scroll-margin-top: 90px;
+}
