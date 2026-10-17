@@ -36,7 +36,7 @@ const achievements = [
   },
   {
     id: 2,
-    title: 'Relay Coding Challenge',
+    title: 'Relay Coding Challenge - 2nd Position',
     organization: 'HACKJKLU v5.0',
     year: '2026',
     description:
