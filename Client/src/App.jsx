@@ -9,7 +9,8 @@ import Hero from './components/hero/Hero'
 import Footer from './components/footer/Footer'
 import Skills from './components/skills/Skills'
 import Project from './components/project/Project'
-import Journey from './components/journey/Journey'
+import Education from './components/education/Education'
+import Experience from './components/experience/Experience'
 import Certification from './components/certificate/Certificate'
 import Contact from './components/contact/Contact'
 
@@ -37,7 +38,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/projects" element={<Project />} />
-          <Route path="/journey" element={<Journey />} />
+          <Route path="/education" element={<Education />} />
+          <Route path="/experience" element={<Experience />} />
           <Route path="/certificates" element={<Certification />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={

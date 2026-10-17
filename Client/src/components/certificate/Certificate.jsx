@@ -1,25 +1,26 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import './Certificate.css';
+import DBMS_cert from '../../assets/DBMS_cert.png';
+import Redhat_cert from '../../assets/Redhat_cert.png';
 
 const certificates = [
   {
     id: 1,
-    title: 'Web Development',
-    platform: 'Your Certificate Platform',
-    date: '2026',
-    image: '/certificates/certificate-1.jpg',
-    certificateUrl: '',
-    skills: ['HTML', 'CSS', 'JavaScript'],
+    title: 'Database Management Systems (DBMS) - Part 1',
+    platform: 'Infosys Springboard',
+    date: 'Nov 2025',
+    image: DBMS_cert,
+    certificateUrl: 'https://drive.google.com/file/d/1Hmi_NxCDC74nLeuU7fhrWdK78ObmVWQo/view',
+    skills: ['DBMS', 'MySQL', 'Normalization', 'Relational Database'],
   },
   {
     id: 2,
-    title: 'Data Analytics',
-    platform: 'Your Certificate Platform',
-    date: '2026',
-    image: '/certificates/certificate-2.jpg',
-    certificateUrl: '',
-    skills: ['SQL', 'Data Analysis'],
+    title: 'Red Hat System Administration I (RH124 - RHA) - Ver. 10',
+    platform: 'Red Hat',
+    date: 'Apr 2026',
+    image: Redhat_cert,
+    certificateUrl: 'https://www.credly.com/badges/ef00d565-4899-4424-8c7c-c078e6ba7a00/public_url',
+    skills: ['Linux', 'Red Hat Linux'],
   },
 ];
 
@@ -27,19 +28,19 @@ const achievements = [
   {
     id: 1,
     title: 'Hackathon Participation',
-    organization: 'Your Hackathon Name',
+    organization: 'LNMHACKS',
     year: '2026',
     description:
-      'Participated in a hackathon and collaborated on a technology-based project.',
+      'Participated in a hackathon and collaborated on a Web3-based project.',
     type: 'Hackathon',
   },
   {
     id: 2,
-    title: 'Project Achievement',
-    organization: 'Academic Project',
+    title: 'Relay Coding Challenge',
+    organization: 'HACKJKLU v5.0',
     year: '2026',
     description:
-      'Developed practical software projects as part of academic learning.',
+      'Secured 2nd place at BIT-BY-BIT. The Relay Coding Challenge during HackJKLU v5.0!',
     type: 'Achievement',
   },
 ];

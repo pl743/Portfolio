@@ -1,14 +1,16 @@
+
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Typewriter } from 'react-simple-typewriter';
 import './Hero.css';
 
 function Hero() {
-  const [ResumeOptions, setResumeOptions] = useState(false);
+  const [resumeOptions, setResumeOptions] = useState(false);
 
   return (
     <section className="hero" id="home">
       <div className="hero-container">
-
+        
         <div className="content">
           <b className="intro">HELLO, I'M</b>
 
@@ -43,40 +45,75 @@ function Hero() {
             and solving real-world problems through technology.
           </p>
 
-          
-          <div className="hero-buttons">
-            <button
-              className="btn-primary"
-              onClick={() => setResumeOptions(!ResumeOptions)}
+          <div className="hero-actions">
+
+            <div className="hero-buttons">
+              <button
+                type="button"
+                className="btn-primary"
+                onClick={() => setResumeOptions((prev) => !prev)}
+                aria-expanded={resumeOptions}
+              >
+                Download Resume
+              </button>
+
+              {resumeOptions && (
+                <div className="options">
+                  <button
+                    type="button"
+                    className="btn-secondary"
+                    onClick={() => {
+                      window.location.href =
+                        'http://localhost:8000/api/resume/pdf';
+                    }}
+                  >
+                    Download PDF
+                  </button>
+
+                  <button
+                    type="button"
+                    className="btn-secondary"
+                    onClick={() => {
+                      window.location.href =
+                        'http://localhost:8000/api/resume/docx';
+                    }}
+                  >
+                    Download Word
+                  </button>
+                </div>
+              )}
+            </div>
+
+            <NavLink to="/projects" className="btn-projects">
+              View Projects <span>↗</span>
+            </NavLink>
+
+          </div>
+          <div className="hero-socials">
+
+            <a
+              href="https://www.linkedin.com/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Download Resume
-            </button>
+              LinkedIn <span>↗</span>
+            </a>
 
-            {ResumeOptions && (
-              <div className="options">
-                <button
-                  className="btn-secondary"
-                  onClick={() =>
-                    window.location.href = 'http://localhost:8000/api/resume/pdf'
-                  }
-                >
-                  PDF
-                </button>
+            <a
+              href="https://github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub <span>↗</span>
+            </a>
 
-                <button
-                  className="btn-secondary"
-                  onClick={() =>
-                    window.location.href = 'http://localhost:8000/api/resume/docx'
-                  }
-                >
-                  Word
-                </button>
-              </div>
-            )}
+            <a href="mailto:parthlavti5561@gmail.com">
+              Email <span>↗</span>
+            </a>
+
           </div>
         </div>
 
-        
         <div className="hero-card">
           <div className="hero-avatar">
             <span>PL</span>

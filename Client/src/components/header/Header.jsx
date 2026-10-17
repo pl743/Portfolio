@@ -15,7 +15,8 @@ function Header({ theme, toggleTheme }) {
         <li><NavLink to="/about">About</NavLink></li>
         <li><NavLink to="/skills">Skills</NavLink></li>
         <li><NavLink to="/projects">Project</NavLink></li>
-        <li><NavLink to="/journey">Education & Experience</NavLink></li>
+        <li><NavLink to="/education">Education</NavLink></li>
+        <li><NavLink to="/experience">Experience</NavLink></li>
         <li><NavLink to="/certificates">Certificates</NavLink></li>
         <li><NavLink className="connect-link" to="/contact">Let's Connect</NavLink></li>
       </ul>
