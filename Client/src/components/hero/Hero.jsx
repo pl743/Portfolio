@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Typewriter } from 'react-simple-typewriter';
@@ -29,7 +28,7 @@ function Hero() {
               words={[
                 'B.Tech CSE Student',
                 'Aspiring Software Developer',
-                'MERN Stack Developer',
+                'Full Stack Developer',
               ]}
               loop={0}
               cursor
