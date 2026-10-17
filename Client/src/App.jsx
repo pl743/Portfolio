@@ -1,59 +1,106 @@
-import { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import './App.css'
-import './index.css'
+import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation,} from 'react-router-dom';
+import './App.css';
+import './index.css';
 
-import Header from './components/header/Header'
-import About from './components/about/About'
-import Hero from './components/hero/Hero'
-import Footer from './components/footer/Footer'
-import Skills from './components/skills/Skills'
-import Project from './components/project/Project'
-import Education from './components/education/Education'
-import Experience from './components/experience/Experience'
-import Certification from './components/certificate/Certificate'
-import Contact from './components/contact/Contact'
+import Header from './components/header/Header';
+import Hero from './components/hero/Hero';
+import About from './components/about/About';
+import Skills from './components/skills/Skills';
+import Project from './components/project/Project';
+import Education from './components/education/Education';
+import Experience from './components/experience/Experience';
+import Certification from './components/certificate/Certificate';
+import Contact from './components/contact/Contact';
+import Footer from './components/footer/Footer';
 
-function App() {
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('portfolio-theme') || 'dark'
-  })
+function PortfolioPage() {
+  const location = useLocation();
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('portfolio-theme', theme)
-  }, [theme])
+    const id = location.pathname === '/' ? 'home' : location.pathname.slice(1);
+    const element = document.getElementById(id);
 
-  const toggleTheme = () => {
-    setTheme(current => current === 'dark' ? 'light' : 'dark')
+    if (element) {
+      const top = element.getBoundingClientRect().top + window.scrollY - 90;
+
+      window.scrollTo({
+        top,
+        behavior: 'smooth',
+      });
+    }
+  }, [location.pathname]);
+
+  return (
+    <main>
+      <section id="home" className="page-section">
+        <Hero />
+      </section>
+
+      <section id="about" className="page-section">
+        <About />
+      </section>
+
+      <section id="skills" className="page-section">
+        <Skills />
+      </section>
+
+      <section id="projects" className="page-section">
+        <Project />
+      </section>
+
+      <section id="education" className="page-section">
+        <Education />
+      </section>
+
+      <section id="experience" className="page-section">
+        <Experience />
+      </section>
+
+      <section id="certificates" className="page-section">
+        <Certification />
+      </section>
+
+      <section id="contact" className="page-section">
+        <Contact />
+      </section>
+    </main>
+  );
+}
+
+function AppContent() {
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem('portfolio-theme') || 'dark'
+  );
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('portfolio-theme', theme);
+  }, [theme]);
+
+  function toggleTheme() {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
   }
 
   return (
-    <BrowserRouter>
+    <>
       <Header theme={theme} toggleTheme={toggleTheme} />
 
-      <main>
-        <Routes>
-          <Route path="/" element={<Hero />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/skills" element={<Skills />} />
-          <Route path="/projects" element={<Project />} />
-          <Route path="/education" element={<Education />} />
-          <Route path="/experience" element={<Experience />} />
-          <Route path="/certificates" element={<Certification />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={
-            <div className="not-found">
-              <h2>404 - Page Not Found</h2>
-              <p>The page you are looking for does not exist.</p>
-            </div>
-          } />
-        </Routes>
-      </main>
-
+      <Routes>
+        <Route path="*" element={<PortfolioPage />} />
+      </Routes>
+      
       <Footer />
-    </BrowserRouter>
-  )
+    </>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  );
+}
+
+export default App;
