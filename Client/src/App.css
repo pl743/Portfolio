@@ -1,0 +1,42 @@
+
+/* Warm beige background for portfolio sections */
+.page-section {
+  position: relative;
+  scroll-margin-top: 90px;
+  isolation: isolate;
+}
+
+.page-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 10% 80%,
+      var(--beige-glow),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 90% 10%,
+      var(--beige-glow),
+      transparent 35%
+    ),
+    linear-gradient(
+      var(--grid-color) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      var(--grid-color) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    auto,
+    auto,
+    52px 52px,
+    52px 52px;
+}

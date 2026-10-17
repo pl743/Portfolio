@@ -4,36 +4,47 @@ import './Project.css';
 const projects = [
   {
     id: 1,
-    name: 'CRIMS',
-    subtitle: 'Crime Record & Investigation Management System',
+    name: 'SkillProof',
+    subtitle: 'SkillProof - AI + Blockchain Verified Resume Platform',
     description:
-      'A web application to manage crime records, investigation details and related information through a centralized system.',
-    techStack: ['React', 'Node.js', 'Express', 'MongoDB'],
-    github: 'https://github.com/YOUR_USERNAME/CRIMS',
-    demo: '',
+      'SkillProof is a Web3-powered platform that verifies user skills using AI Quiz and stores proof on blockchain, generating a professional on-chain resume.',
+    techStack: ['Html', 'css', 'js', 'Node.js', 'Express', 'OpenAI API', 'Monad Testnet'],
+    github: 'https://github.com/pl743/SkillProof.git',
+    demo: ' https://skill-proof-pi.vercel.app/',
     status: 'Project',
   },
   {
     id: 2,
+    name: 'Wealth Management Analytical Platform',
+    subtitle: 'Financial Data Engineering',
+    description:
+      'The project organizing customer and investment data, building data warehouse, creating business-specific data marts, and making data accessible through REST APIs. Also have AI-assisted financial report generation.',
+    techStack: ['PySpark', 'Databricks', 'SQL', 'OpenRouter API', 'Node.js', 'Express.js', 'Postman', 'PowerBi'],
+    github: 'https://github.com/pl743/Wealth-Management-Analytic-Platform.git',
+    demo: '',
+    status: 'Project',
+  },
+  {
+    id: 3,
     name: 'Personal Portfolio',
     subtitle: 'My Developer Portfolio',
     description:
       'A responsive portfolio website showcasing my skills, projects, education and experience, with resume downloads and a contact section.',
-    techStack: ['React', 'CSS', 'Node.js', 'Express'],
-    github: 'https://github.com/YOUR_USERNAME/YOUR_PORTFOLIO',
+    techStack: ['React', 'CSS', 'Node.js', 'Express.js', 'MongoDB'],
+    github: 'https://github.com/pl743/Portfolio.git',
     demo: '',
     status: 'In Progress',
   },
   {
-    id: 3,
-    name: 'Wealth Management Data Mart',
-    subtitle: 'Financial Data Engineering',
+    id: 4,
+    name: 'MediMitra',
+    subtitle: 'Smart Healthcare Management Platform',
     description:
-      'A data engineering project focused on organizing financial datasets, creating fact and dimension tables, and preparing data for analytics.',
-    techStack: ['Python', 'PySpark', 'Databricks', 'SQL'],
-    github: 'https://github.com/YOUR_USERNAME/WEALTH-DATA-MART',
+      'A full-stack healthcare management platform that simplifies doctor appointments, lab test bookings, and medicine availability through a Smart Care Journey, real-time stock tracking, secure health record sharing, and intelligent appointment management for a seamless patient experience.',
+    techStack: ['React', 'CSS', 'Node.js', 'Express.js', 'MongoDB'],
+    github: 'https://github.com/pl743/MediMitra.git',
     demo: '',
-    status: 'Project',
+    status: 'In Progress',
   },
 ];
 

@@ -24,7 +24,7 @@ function Journey() {
       type: 'Education',
       year: '2022 – 2024',
       title: 'Senior Secondary Education (Class XII)',
-      organization: 'Your School Name',
+      organization: 'Kota Career Science Education Center',
       description:
         'Completed senior secondary education before beginning undergraduate studies.',
     },

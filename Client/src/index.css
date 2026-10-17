@@ -1,71 +1,51 @@
+
+/* LIGHT THEME - Warm Beige */
+:root,
+:root[data-theme="light"] {
+  --bg-primary: #faf7f0;
+  --bg-secondary: #fffdf8;
+  --bg-card: #fffefa;
+
+  --text-primary: #292d3a;
+  --text-secondary: #756b5d;
+
+  --border-color: #e9ddca;
+  --accent-color: #2563eb;
+
+  --beige-glow: rgba(232, 190, 126, 0.20);
+  --grid-color: rgba(166, 135, 91, 0.07);
+}
+
+/* DARK THEME - Existing navy look */
+:root[data-theme="dark"] {
+  --bg-primary: #0b1120;
+  --bg-secondary: #111827;
+  --bg-card: #151e30;
+
+  --text-primary: #e5edf8;
+  --text-secondary: #9caec5;
+
+  --border-color: #273449;
+  --accent-color: #38bdf8;
+
+  --beige-glow: rgba(56, 189, 248, 0.08);
+  --grid-color: rgba(148, 163, 184, 0.035);
+}
+
+/* Global settings */
 * {
   box-sizing: border-box;
 }
 
-html,
-body,
-#root {
-  width: 100%;
-  min-height: 100%;
-  margin: 0;
-}
-
-body {
-  overflow-x: hidden;
-}
-
-
-/* DARK THEME - default */
-:root {
-  color-scheme: dark;
-
-  --bg-primary: #080d1b;
-  --bg-secondary: #111a30;
-  --bg-card: #101a2e;
-  --text-primary: #f8fafc;
-  --text-secondary: #b8c3d9;
-  --border-color: #26344d;
-  --accent-color: #60a5fa;
-}
-
-/* LIGHT THEME */
-:root[data-theme="light"] {
-  color-scheme: light;
-
-  --bg-primary: #f4f7fc;
-  --bg-secondary: #ffffff;
-  --bg-card: #ffffff;
-  --text-primary: #172033;
-  --text-secondary: #53627a;
-  --border-color: #dce4f0;
-  --accent-color: #2563eb;
-}
-
-/* Apply theme globally */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
 }
 
 body {
   margin: 0;
-  overflow-x: hidden;
-  background-color: var(--bg-primary);
+  background: var(--bg-primary);
   color: var(--text-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-#root {
-  width: 100%;
-  min-height: 100vh;
-}
-
-main {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-section {
-  scroll-margin-top: 90px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
