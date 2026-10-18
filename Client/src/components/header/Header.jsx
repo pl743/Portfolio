@@ -1,6 +1,7 @@
+
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../../assets/p-logo.avif';
+import logo from '../../assets/p-logo.webp';
 import './Header.css';
 
 function Header({ theme, toggleTheme }) {
@@ -18,6 +19,16 @@ function Header({ theme, toggleTheme }) {
     { label: 'Certificates', path: '/certificates' },
   ];
 
+  const connectLink = (
+    <NavLink
+      to="/contact"
+      className="connect-link"
+      onClick={closeMenu}
+    >
+      Let's Connect <span>↗</span>
+    </NavLink>
+  );
+
   return (
     <nav className="navbar">
       {/* Logo */}
@@ -27,7 +38,10 @@ function Header({ theme, toggleTheme }) {
       </NavLink>
 
       {/* Navigation */}
-      <div className={`navbar-menu ${menuOpen ? 'menu-open' : ''}`}>
+      <div
+        id="mobile-navigation"
+        className={`navbar-menu ${menuOpen ? 'menu-open' : ''}`}
+      >
         <ul className="navbar-links">
           {navItems.map((item) => (
             <li key={item.path}>
@@ -41,19 +55,19 @@ function Header({ theme, toggleTheme }) {
             </li>
           ))}
 
+          {/* Mobile Connect Button */}
           <li className="mobile-connect">
-            <NavLink
-              to="/contact"
-              className="connect-link"
-              onClick={closeMenu}
-            >
-              Let's Connect <span>↗</span>
-            </NavLink>
+            {connectLink}
           </li>
         </ul>
       </div>
 
-      {/* Right-side controls */}
+      {/* Desktop Connect Button */}
+      <div className="desktop-connect">
+        {connectLink}
+      </div>
+
+      {/* Theme Toggle + Hamburger */}
       <div className="navbar-actions">
         <button
           type="button"
@@ -69,7 +83,11 @@ function Header({ theme, toggleTheme }) {
           type="button"
           className={`menu-toggle ${menuOpen ? 'is-open' : ''}`}
           onClick={() => setMenuOpen((prev) => !prev)}
-          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-label={
+            menuOpen
+              ? 'Close navigation menu'
+              : 'Open navigation menu'
+          }
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
         >
