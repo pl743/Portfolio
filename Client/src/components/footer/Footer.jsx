@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import './Footer.css'
 
 function Footer() {
@@ -19,7 +20,7 @@ function Footer() {
           rel="noopener noreferrer"
           aria-label="GitHub profile"
         >
-          <b>Github</b>
+          <b><FaGithub /> Github</b>
         </a>
 
         <a
@@ -28,7 +29,7 @@ function Footer() {
           rel="noopener noreferrer"
           aria-label="LinkedIn profile"
         >
-          <b>Linkdin</b>
+          <b><FaLinkedin /> Linkdin</b>
         </a>
       </div>
     </footer>

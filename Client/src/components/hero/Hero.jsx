@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Typewriter } from 'react-simple-typewriter';
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import './Hero.css';
 
 function Hero() {
@@ -66,7 +67,7 @@ function Hero() {
                         'http://localhost:8000/api/resume/pdf';
                     }}
                   >
-                    Download PDF
+                    PDF
                   </button>
 
                   <button
@@ -77,14 +78,14 @@ function Hero() {
                         'http://localhost:8000/api/resume/docx';
                     }}
                   >
-                    Download Word
+                    Word
                   </button>
                 </div>
               )}
             </div>
 
             <NavLink to="/projects" className="btn-projects">
-              View Projects <span>↗</span>
+              Explore My Work <span>↗</span>
             </NavLink>
 
           </div>
@@ -95,6 +96,7 @@ function Hero() {
               target="_blank"
               rel="noopener noreferrer"
             >
+              <FaLinkedin />
               LinkedIn <span>↗</span>
             </a>
 
@@ -103,10 +105,12 @@ function Hero() {
               target="_blank"
               rel="noopener noreferrer"
             >
+              <FaGithub />
               GitHub <span>↗</span>
             </a>
 
             <a href="mailto:parthlavti5561@gmail.com">
+              <FaEnvelope />
               Email <span>↗</span>
             </a>
 
