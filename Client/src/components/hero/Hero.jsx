@@ -117,21 +117,50 @@ function Hero() {
           </div>
         </div>
 
-        <div className="hero-card">
-          <div className="hero-avatar">
-            <span>PL</span>
+        
+       
+        
+        <div className="tech-visual">
+          <div className="tech-orbit orbit-one"></div>
+          <div className="tech-orbit orbit-two"></div>
+
+          <div className="tech-core">
+            <span className="core-symbol">&lt;/&gt;</span>
+            <span className="core-label">BUILD. CREATE. SOLVE.</span>
           </div>
 
-          <h2>Software Developer</h2>
-
-          <p>MERN Stack · C++ · Problem Solving</p>
-
-          <div className="tech-tags">
+          <div className="floating-tech tech-react">
+            <i className="devicon dev-react">⚛</i>
             <span>React</span>
+          </div>
+
+          <div className="floating-tech tech-node">
+            <i className="devicon">&lt;/&gt;</i>
             <span>Node.js</span>
+          </div>
+
+          <div className="floating-tech tech-mongo">
+            <i className="devicon">◈</i>
             <span>MongoDB</span>
           </div>
+
+          <div className="floating-tech tech-cpp">
+            <i className="devicon">C++</i>
+            <span>C++</span>
+          </div>
+
+          <div className="floating-tech tech-js">
+            <i className="devicon">JS</i>
+            <span>JavaScript</span>
+          </div>
+
+          <div className="tech-caption">
+            <span className="tech-caption-dot"></span>
+            Turning ideas into applications
+          </div>
         </div>
+
+
 
       </div>
     </section>
