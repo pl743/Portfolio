@@ -43,6 +43,16 @@ const projects = [
     demo: '',
     status: 'In Progress',
   },
+  {
+    id: 5,
+    name: 'AI-Based Crop Price Forecasting',
+    subtitle: 'Machine Learning & Market Advisory System',
+    description: 'It is an Academic Group Project. An ML-based system that forecasts crop prices using historical market data and helps farmers make informed selling decisions. It analyzes seasonal, environmental, and demand-related factors using regression models to generate data-driven market insights.',
+    techStack: ['Python', 'Machine Learning', 'Linear Regression', 'Random Forest', 'XGBoost', 'SVR' ],
+    github: 'https://github.com/Keshav446/Crop-Price-Forecasting-and-Market-Advisory-System-.git',
+    demo: '',
+    status: 'Project',
+  },
 ];
 
 const filters = ['All', 'React', 'Node.js', 'MongoDB', 'Python', 'SQL'];
