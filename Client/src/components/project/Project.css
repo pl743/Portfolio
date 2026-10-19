@@ -1,48 +1,23 @@
-
-/* =========================
-   PROJECTS SECTION
-========================= */
-
 .projects {
   position: relative;
   padding: 100px 8%;
   overflow: hidden;
-
   background:
-    radial-gradient(
-      circle at 95% 15%,
-      rgba(99, 102, 241, 0.10),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at 5% 85%,
-      rgba(14, 165, 233, 0.08),
-      transparent 30%
-    ),
+    radial-gradient(circle at 95% 15%, rgba(99, 102, 241, 0.10), transparent 32%),
+    radial-gradient(circle at 5% 85%, rgba(14, 165, 233, 0.08), transparent 30%),
     var(--bg-primary);
-
   color: var(--text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Subtle grid background */
 .projects::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-
   background-image:
-    linear-gradient(
-      rgba(148, 163, 184, 0.035) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(148, 163, 184, 0.035) 1px,
-      transparent 1px
-    );
-
+    linear-gradient(rgba(148, 163, 184, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.035) 1px, transparent 1px);
   background-size: 44px 44px;
 }
 
@@ -52,10 +27,6 @@
   max-width: 1200px;
   margin: 0 auto;
 }
-
-/* =========================
-   SECTION HEADING
-========================= */
 
 .projects-heading {
   text-align: center;
@@ -80,13 +51,7 @@
 }
 
 .projects-heading h2 span {
-  background: linear-gradient(
-    100deg,
-    #38bdf8,
-    #6366f1,
-    #a5b4fc
-  );
-
+  background: linear-gradient(100deg, #38bdf8, #6366f1, #a5b4fc);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -100,10 +65,6 @@
   line-height: 1.9;
 }
 
-/* =========================
-   PROJECT FILTERS
-========================= */
-
 .project-filters {
   display: flex;
   justify-content: center;
@@ -114,22 +75,14 @@
 
 .filter-btn {
   padding: 10px 18px;
-
   background: var(--bg-card);
   color: var(--text-secondary);
-
   border: 1px solid var(--border-color);
   border-radius: 30px;
-
   cursor: pointer;
   font-size: 13px;
   font-weight: 600;
-
-  transition:
-    background 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease;
+  transition: all 0.25s ease;
 }
 
 .filter-btn:hover {
@@ -140,13 +93,9 @@
 .filter-btn:hover,
 .filter-btn.active {
   background: linear-gradient(110deg, #4f46e5, #2563eb);
-  color: #ffffff;
+  color: #fff;
   border-color: #6366f1;
 }
-
-/* =========================
-   PROJECT GRID
-========================= */
 
 .projects-grid {
   display: grid;
@@ -155,25 +104,17 @@
   align-items: stretch;
 }
 
-/* =========================
-   PROJECT CARD
-========================= */
-
 .project-card {
   position: relative;
   display: flex;
   flex-direction: column;
   min-width: 0;
   padding: 26px;
-
   background: var(--bg-card);
   color: var(--text-primary);
-
   border: 1px solid var(--border-color);
   border-radius: 18px;
-
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
-
   transition:
     transform 0.3s ease,
     border-color 0.3s ease,
@@ -184,15 +125,10 @@
 .project-card:hover {
   transform: translateY(-7px);
   border-color: rgba(56, 189, 248, 0.65);
-
   box-shadow:
     0 20px 45px rgba(37, 99, 235, 0.12),
     0 0 25px rgba(56, 189, 248, 0.04);
 }
-
-/* =========================
-   CARD TOP
-========================= */
 
 .project-card-top {
   display: flex;
@@ -212,20 +148,13 @@
 
 .project-status {
   padding: 6px 10px;
-
   background: rgba(56, 189, 248, 0.08);
   color: #38bdf8;
-
   border: 1px solid rgba(56, 189, 248, 0.2);
   border-radius: 20px;
-
   font-size: 11px;
   font-weight: 600;
 }
-
-/* =========================
-   PROJECT TEXT
-========================= */
 
 .project-card h3 {
   font-size: 21px;
@@ -252,10 +181,6 @@
   overflow-wrap: anywhere;
 }
 
-/* =========================
-   TECHNOLOGY BADGES
-========================= */
-
 .project-tech {
   display: flex;
   flex-wrap: wrap;
@@ -266,20 +191,13 @@
 
 .tech-badge {
   padding: 7px 10px;
-
   background: var(--bg-secondary);
   color: var(--text-secondary);
-
   border: 1px solid var(--border-color);
   border-radius: 7px;
-
   font-size: 11px;
   font-weight: 500;
 }
-
-/* =========================
-   PROJECT LINKS
-========================= */
 
 .project-links {
   display: flex;
@@ -294,19 +212,12 @@
   align-items: center;
   justify-content: center;
   gap: 7px;
-
   padding: 10px 13px;
   border-radius: 9px;
-
   font-size: 12px;
   font-weight: 700;
   text-decoration: none;
-
-  transition:
-    background 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease;
+  transition: all 0.25s ease;
 }
 
 .project-link:hover {
@@ -315,7 +226,7 @@
 
 .github-link {
   background: linear-gradient(110deg, #4f46e5, #2563eb);
-  color: #ffffff;
+  color: #fff;
   border: 1px solid transparent;
 }
 
@@ -340,9 +251,37 @@
   cursor: default;
 }
 
-/* =========================
-   EMPTY STATE
-========================= */
+.view-all-projects,
+.back-to-projects {
+  display: flex;
+  justify-content: center;
+  margin-top: 38px;
+}
+
+.view-all-btn,
+.back-projects-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 24px;
+  color: #fff;
+  background: linear-gradient(110deg, #4f46e5, #0284c7);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.view-all-btn:hover,
+.back-projects-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+}
 
 .no-projects {
   grid-column: 1 / -1;
@@ -352,10 +291,6 @@
   border: 1px dashed var(--border-color);
   border-radius: 14px;
 }
-
-/* =========================
-   TABLET
-========================= */
 
 @media (max-width: 1000px) {
   .projects {
@@ -371,10 +306,6 @@
     padding: 23px;
   }
 }
-
-/* =========================
-   MOBILE
-========================= */
 
 @media (max-width: 650px) {
   .projects {
@@ -419,16 +350,19 @@
   .project-links {
     gap: 8px;
   }
-}
 
-/* =========================
-   REDUCED MOTION
-========================= */
+  .view-all-projects,
+  .back-to-projects {
+    margin-top: 28px;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .project-card,
   .filter-btn,
-  .project-link {
+  .project-link,
+  .view-all-btn,
+  .back-projects-btn {
     transition: none;
   }
 }

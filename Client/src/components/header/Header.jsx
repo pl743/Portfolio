@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/p-logo.webp';
@@ -31,13 +30,12 @@ function Header({ theme, toggleTheme }) {
 
   return (
     <nav className="navbar">
-      {/* Logo */}
+      
       <NavLink to="/" className="brand-logo" onClick={closeMenu}>
         <img src={logo} className="logo" alt="Parth.folio logo" />
         <b>Parth.folio</b>
       </NavLink>
 
-      {/* Navigation */}
       <div
         id="mobile-navigation"
         className={`navbar-menu ${menuOpen ? 'menu-open' : ''}`}
@@ -55,19 +53,16 @@ function Header({ theme, toggleTheme }) {
             </li>
           ))}
 
-          {/* Mobile Connect Button */}
           <li className="mobile-connect">
             {connectLink}
           </li>
         </ul>
       </div>
 
-      {/* Desktop Connect Button */}
       <div className="desktop-connect">
         {connectLink}
       </div>
 
-      {/* Theme Toggle + Hamburger */}
       <div className="navbar-actions">
         <button
           type="button"
@@ -84,9 +79,7 @@ function Header({ theme, toggleTheme }) {
           className={`menu-toggle ${menuOpen ? 'is-open' : ''}`}
           onClick={() => setMenuOpen((prev) => !prev)}
           aria-label={
-            menuOpen
-              ? 'Close navigation menu'
-              : 'Open navigation menu'
+            menuOpen ? 'Close navigation menu' : 'Open navigation menu'
           }
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"

@@ -13,6 +13,7 @@ import Experience from './components/experience/Experience';
 import Certification from './components/certificate/Certificate';
 import Contact from './components/contact/Contact';
 import Footer from './components/footer/Footer';
+import AllProjectsPage from './components/project/AllProject';
 
 function PortfolioPage() {
   const location = useLocation();
@@ -85,6 +86,11 @@ function AppContent() {
       <Header theme={theme} toggleTheme={toggleTheme} />
 
       <Routes>
+        <Route
+          path="/all-projects"
+          element={<AllProjectsPage />}
+        />
+
         <Route path="*" element={<PortfolioPage />} />
       </Routes>
       

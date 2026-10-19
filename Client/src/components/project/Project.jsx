@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import './Project.css';
 
 const projects = [
@@ -6,19 +7,17 @@ const projects = [
     id: 1,
     name: 'SkillProof',
     subtitle: 'SkillProof - AI + Blockchain Verified Resume Platform',
-    description:
-      'SkillProof is a Web3-powered platform that verifies user skills using AI Quiz and stores proof on blockchain, generating a professional on-chain resume.',
+    description: 'SkillProof is a Web3-powered platform that verifies user skills using AI Quiz and stores proof on blockchain, generating a professional on-chain resume.',
     techStack: ['Html', 'css', 'js', 'Node.js', 'Express', 'OpenAI API', 'Monad Testnet'],
     github: 'https://github.com/pl743/SkillProof.git',
-    demo: ' https://skill-proof-pi.vercel.app/',
+    demo: 'https://skill-proof-pi.vercel.app/',
     status: 'Project',
   },
   {
     id: 2,
     name: 'Wealth Management Analytical Platform',
     subtitle: 'Financial Data Engineering',
-    description:
-      'The project organizing customer and investment data, building data warehouse, creating business-specific data marts, and making data accessible through REST APIs. Also have AI-assisted financial report generation.',
+    description: 'The project organizes customer and investment data, builds a data warehouse, creates business-specific data marts, and makes data accessible through REST APIs. It also includes AI-assisted financial report generation.',
     techStack: ['PySpark', 'Databricks', 'SQL', 'OpenRouter API', 'Node.js', 'Express.js', 'Postman', 'PowerBi'],
     github: 'https://github.com/pl743/Wealth-Management-Analytic-Platform.git',
     demo: '',
@@ -28,8 +27,7 @@ const projects = [
     id: 3,
     name: 'Personal Portfolio',
     subtitle: 'My Developer Portfolio',
-    description:
-      'A responsive portfolio website showcasing my skills, projects, education and experience, with resume downloads and a contact section.',
+    description: 'A responsive portfolio website showcasing my skills, projects, education and experience, with resume downloads and a contact section.',
     techStack: ['React', 'CSS', 'Node.js', 'Express.js', 'MongoDB'],
     github: 'https://github.com/pl743/Portfolio.git',
     demo: '',
@@ -39,8 +37,7 @@ const projects = [
     id: 4,
     name: 'MediMitra',
     subtitle: 'Smart Healthcare Management Platform',
-    description:
-      'A full-stack healthcare management platform that simplifies doctor appointments, lab test bookings, and medicine availability through a Smart Care Journey, real-time stock tracking, secure health record sharing, and intelligent appointment management for a seamless patient experience.',
+    description: 'A full-stack healthcare management platform that simplifies doctor appointments, lab test bookings, and medicine availability through a Smart Care Journey, real-time stock tracking, secure health record sharing, and intelligent appointment management for a seamless patient experience.',
     techStack: ['React', 'CSS', 'Node.js', 'Express.js', 'MongoDB'],
     github: 'https://github.com/pl743/MediMitra.git',
     demo: '',
@@ -48,35 +45,44 @@ const projects = [
   },
 ];
 
-const filters = [
-  'All',
-  'React',
-  'Node.js',
-  'MongoDB',
-  'Python',
-  'SQL',
-];
+const filters = ['All', 'React', 'Node.js', 'MongoDB', 'Python', 'SQL'];
 
-function Project() {
+function Project({ showAll = false }) {
   const [activeFilter, setActiveFilter] = useState('All');
 
   const filteredProjects =
     activeFilter === 'All'
       ? projects
       : projects.filter((project) =>
-          project.techStack.includes(activeFilter)
+          project.techStack.some(
+            (tech) => tech.toLowerCase() === activeFilter.toLowerCase()
+          )
         );
 
-  return (
-    <section className="projects" id="projects">
-      <div className="projects-container">
+  const visibleProjects = showAll
+    ? filteredProjects
+    : filteredProjects.slice(0, 3);
 
+  return (
+    <section
+      className={`projects ${showAll ? 'all-projects-page' : ''}`}
+      id={showAll ? 'all-projects' : 'projects'}
+    >
+      <div className="projects-container">
         <div className="projects-heading">
-          <p className="section-subtitle">WHAT I'VE BUILT</p>
-          <h2>My <span>Projects</span></h2>
+          <p className="section-subtitle">
+            {showAll ? 'EXPLORE MY WORK' : "WHAT I'VE BUILT"}
+          </p>
+
+          <h2>
+            {showAll ? 'All My ' : 'My '}
+            <span>Projects</span>
+          </h2>
+
           <p>
-            A selection of projects where I apply my skills
-            to solve practical problems.
+            {showAll
+              ? 'Explore all my projects, technologies, and practical implementations.'
+              : 'A selection of projects where I apply my skills to solve practical problems.'}
           </p>
         </div>
 
@@ -97,23 +103,20 @@ function Project() {
         </div>
 
         <div className="projects-grid">
-          {filteredProjects.map((project) => (
+          {visibleProjects.map((project) => (
             <article className="project-card" key={project.id}>
               <div className="project-card-top">
                 <span className="project-number">
-                  0{project.id}
+                  {String(project.id).padStart(2, '0')}
                 </span>
-                <span className="project-status">
-                  {project.status}
-                </span>
+
+                <span className="project-status">{project.status}</span>
               </div>
 
               <h3>{project.name}</h3>
               <h4>{project.subtitle}</h4>
 
-              <p className="project-description">
-                {project.description}
-              </p>
+              <p className="project-description">{project.description}</p>
 
               <div className="project-tech">
                 {project.techStack.map((tech) => (
@@ -158,6 +161,21 @@ function Project() {
           </p>
         )}
 
+        {!showAll && (
+          <div className="view-all-projects">
+            <NavLink to="/all-projects" className="view-all-btn">
+              View All Projects <span aria-hidden="true">↗</span>
+            </NavLink>
+          </div>
+        )}
+
+        {showAll && (
+          <div className="back-to-projects">
+            <NavLink to="/projects" className="back-projects-btn">
+              ← Back to Portfolio
+            </NavLink>
+          </div>
+        )}
       </div>
     </section>
   );
