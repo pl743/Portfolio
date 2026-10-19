@@ -22,11 +22,9 @@ function PortfolioPage() {
     const element = document.getElementById(id);
 
     if (element) {
-      const top = element.getBoundingClientRect().top + window.scrollY - 90;
-
-      window.scrollTo({
-        top,
+      element.scrollIntoView({
         behavior: 'smooth',
+        block: 'start',
       });
     }
   }, [location.pathname]);
