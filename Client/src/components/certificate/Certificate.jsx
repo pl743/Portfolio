@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import './Certificate.css';
 import DBMS_cert from '../../assets/DBMS_cert.png';
 import Redhat_cert from '../../assets/Redhat_cert.png';
@@ -30,8 +31,7 @@ const achievements = [
     title: 'Hackathon Participation',
     organization: 'LNMHACKS',
     year: '2026',
-    description:
-      'Participated in a hackathon and collaborated on a Web3-based project.',
+    description: 'Participated in a hackathon and collaborated on a Web3-based project.',
     type: 'Hackathon',
   },
   {
@@ -39,17 +39,25 @@ const achievements = [
     title: 'Relay Coding Challenge - 2nd Position',
     organization: 'HACKJKLU v5.0',
     year: '2026',
-    description:
-      'Secured 2nd place at BIT-BY-BIT. The Relay Coding Challenge during HackJKLU v5.0!',
+    description: 'Secured 2nd place at BIT-BY-BIT, the Relay Coding Challenge during HackJKLU v5.0!',
     type: 'Achievement',
   },
 ];
 
-function Certification() {
+function Certification({ showAll = false }) {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
+  // Homepage par 2 certificates; All Certificates page par sabhi.
+  const visibleCertificates = showAll
+    ? certificates
+    : certificates.slice(0, 2);
+
   useEffect(() => {
+    const element = sectionRef.current;
+
+    if (!element) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -60,9 +68,7 @@ function Certification() {
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    observer.observe(element);
 
     return () => observer.disconnect();
   }, []);
@@ -71,15 +77,19 @@ function Certification() {
     <section
       className={`certification ${
         isVisible ? 'certification-visible' : ''
-      }`}
-      id="certification"
+      } ${showAll ? 'all-certificates-page' : ''}`}
+      id={showAll ? 'all-certificates' : 'certification'}
       ref={sectionRef}
     >
       <div className="certification-container">
-
+        {/* Section Heading */}
         <div className="certification-heading">
           <p className="section-subtitle">PROOF OF LEARNING</p>
-          <h2>Certifications & <span>Achievements</span></h2>
+
+          <h2>
+            Certifications & <span>Achievements</span>
+          </h2>
+
           <p>
             Certifications, learning milestones and experiences
             that reflect my growth.
@@ -91,11 +101,8 @@ function Certification() {
         </div>
 
         <div className="certificate-grid">
-          {certificates.map((certificate) => (
-            <article
-              className="certificate-card"
-              key={certificate.id}
-            >
+          {visibleCertificates.map((certificate) => (
+            <article className="certificate-card" key={certificate.id}>
               <div className="certificate-image">
                 {certificate.image ? (
                   <img
@@ -120,6 +127,7 @@ function Certification() {
                 </span>
 
                 <h4>{certificate.title}</h4>
+
                 <p className="certificate-date">
                   Issued: {certificate.date}
                 </p>
@@ -149,35 +157,63 @@ function Certification() {
           ))}
         </div>
 
-        <div className="certification-section-title achievements-title">
-          <h3>Achievements & Participation</h3>
-        </div>
+        {showAll && (
+          <>
+            <div className="certification-section-title achievements-title">
+              <h3>Achievements & Participation</h3>
+            </div>
 
-        <div className="achievement-grid">
-          {achievements.map((achievement) => (
-            <article
-              className="achievement-card"
-              key={achievement.id}
+            <div className="achievement-grid">
+              {achievements.map((achievement) => (
+                <article
+                  className="achievement-card"
+                  key={achievement.id}
+                >
+                  <div className="achievement-icon">
+                    {achievement.type === 'Hackathon' ? '🚀' : '🏆'}
+                  </div>
+
+                  <span className="achievement-type">
+                    {achievement.type}
+                  </span>
+
+                  <h4>{achievement.title}</h4>
+
+                  <p className="achievement-organization">
+                    {achievement.organization} · {achievement.year}
+                  </p>
+
+                  <p className="achievement-description">
+                    {achievement.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </>
+        )}
+
+        {!showAll && (
+          <div className="view-all-certificates">
+            <NavLink
+              to="/all-certificates"
+              className="view-all-certificates-btn"
             >
-              <div className="achievement-icon">
-                {achievement.type === 'Hackathon' ? '🚀' : '🏆'}
-              </div>
+              View All Certificates & Achievements
+              <span aria-hidden="true">↗</span>
+            </NavLink>
+          </div>
+        )}
 
-              <span className="achievement-type">
-                {achievement.type}
-              </span>
-
-              <h4>{achievement.title}</h4>
-              <p className="achievement-organization">
-                {achievement.organization} · {achievement.year}
-              </p>
-              <p className="achievement-description">
-                {achievement.description}
-              </p>
-            </article>
-          ))}
-        </div>
-
+        {showAll && (
+          <div className="back-to-certificates">
+            <NavLink
+              to="/certificates"
+              className="back-certificates-btn"
+            >
+              ← Back to Portfolio
+            </NavLink>
+          </div>
+        )}
       </div>
     </section>
   );
