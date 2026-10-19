@@ -14,6 +14,7 @@ import Certification from './components/certificate/Certificate';
 import Contact from './components/contact/Contact';
 import Footer from './components/footer/Footer';
 import AllProjectsPage from './components/project/AllProject';
+import AllSkillsPage from './components/skills/AllSkills';
 
 function PortfolioPage() {
   const location = useLocation();
@@ -91,7 +92,15 @@ function AppContent() {
           element={<AllProjectsPage />}
         />
 
-        <Route path="*" element={<PortfolioPage />} />
+        <Route
+          path="/all-skills"
+          element={<AllSkillsPage />}
+        />
+
+        <Route
+          path="*"
+          element={<PortfolioPage />}
+        />
       </Routes>
       
       <Footer />

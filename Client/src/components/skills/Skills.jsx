@@ -1,5 +1,5 @@
-
 import React, { useEffect, useRef, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import './Skills.css';
 
 const skillCategories = [
@@ -22,7 +22,7 @@ const skillCategories = [
     skills: [
       { name: 'Data Structures', level: 65, status: 'Practicing' },
       { name: 'Algorithms', level: 60, status: 'Practicing' },
-      { name: 'Competetive Programming', level: 70, status: 'Practicing' },
+      { name: 'Competitive Programming', level: 70, status: 'Practicing' },
     ],
   },
   {
@@ -30,7 +30,7 @@ const skillCategories = [
     subtitle: 'Understanding the fundamentals',
     icon: '🛡️',
     skills: [
-      { name: 'Operating Systems', level: 55, status: 'Learning' },
+      { name: 'Operating Systems', level: 55, status: 'Intermediate' },
       { name: 'Computer Networks', level: 55, status: 'Learning' },
       { name: 'DBMS', level: 65, status: 'Intermediate' },
     ],
@@ -45,11 +45,24 @@ const skillCategories = [
       { name: 'Git & GitHub', level: 70, status: 'Intermediate' },
     ],
   },
+  {
+    title: 'Programming Language',
+    subtitle: 'Programming Language to solve Problems',
+    icon: '🗄️',
+    skills: [
+      { name: 'C++', level: 80, status: 'Comfortable' },
+      { name: 'Python', level: 60, status: 'Intermediate' },
+    ],
+  },
 ];
 
-function Skills() {
+function Skills({ showAll = false }) {
   const skillsRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+
+  const visibleCategories = showAll
+    ? skillCategories
+    : skillCategories.slice(0, 2);
 
   useEffect(() => {
     const element = skillsRef.current;
@@ -73,31 +86,35 @@ function Skills() {
 
   return (
     <section
-      className={`skills ${isVisible ? 'skills-visible' : ''}`}
-      id="skills"
+      className={`skills ${isVisible ? 'skills-visible' : ''} ${
+        showAll ? 'all-skills-page' : ''
+      }`}
+      id={showAll ? 'all-skills' : 'skills'}
       ref={skillsRef}
     >
       <div className="skills-container">
         <div className="skills-heading">
-          <p className="section-subtitle">WHAT I WORK WITH</p>
+          <p className="section-subtitle">
+            {showAll ? 'EXPLORE MY EXPERTISE' : 'WHAT I WORK WITH'}
+          </p>
 
           <h2>
-            My <span>Skills</span>
+            {showAll ? 'All My ' : 'My '}
+            <span>Skills</span>
           </h2>
 
           <p className="skills-description">
-            Technologies, computer science fundamentals and tools
-            I'm learning and using to build practical projects.
+            {showAll
+              ? 'Explore the technologies, computer science fundamentals and tools I am learning and using.'
+              : "Technologies, computer science fundamentals and tools I'm learning and using to build practical projects."}
           </p>
         </div>
 
         <div className="skills-grid">
-          {skillCategories.map((category, index) => (
+          {visibleCategories.map((category, index) => (
             <article className="skill-card" key={category.title}>
               <div className="skill-card-top">
-                <span className="category-icon">
-                  {category.icon}
-                </span>
+                <span className="category-icon">{category.icon}</span>
 
                 <span className="skill-number">
                   {String(index + 1).padStart(2, '0')}
@@ -113,13 +130,8 @@ function Skills() {
                 {category.skills.map((skill) => (
                   <div className="skill-item" key={skill.name}>
                     <div className="skill-info">
-                      <span className="skill-name">
-                        {skill.name}
-                      </span>
-
-                      <span className="skill-status">
-                        {skill.status}
-                      </span>
+                      <span className="skill-name">{skill.name}</span>
+                      <span className="skill-status">{skill.status}</span>
                     </div>
 
                     <div
@@ -143,6 +155,22 @@ function Skills() {
             </article>
           ))}
         </div>
+
+        {!showAll && (
+          <div className="view-all-skills">
+            <NavLink to="/all-skills" className="view-all-skills-btn">
+              View All Skills <span aria-hidden="true">↗</span>
+            </NavLink>
+          </div>
+        )}
+
+        {showAll && (
+          <div className="back-to-skills">
+            <NavLink to="/skills" className="back-skills-btn">
+              ← Back to Portfolio
+            </NavLink>
+          </div>
+        )}
       </div>
     </section>
   );

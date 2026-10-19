@@ -23,8 +23,6 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Background grid */
-
 .contact::before {
   content: "";
   position: absolute;
@@ -46,10 +44,6 @@
   background-size: 44px 44px;
 }
 
-/* =========================
-   MAIN LAYOUT
-========================= */
-
 .contact-container {
   width: 100%;
   max-width: 1450px;
@@ -60,10 +54,6 @@
   align-items: center;
   gap: clamp(40px, 6vw, 90px);
 }
-
-/* =========================
-   LEFT CONTACT INFORMATION
-========================= */
 
 .contact-info {
   min-width: 0;
@@ -113,8 +103,6 @@
   line-height: 1.8;
 }
 
-/* Email */
-
 .contact-email {
   display: inline-flex;
   align-items: center;
@@ -140,10 +128,6 @@
 .contact-email:hover {
   color: #818cf8;
 }
-
-/* =========================
-   SOCIAL LINKS
-========================= */
 
 .contact-socials {
   display: flex;
@@ -181,8 +165,6 @@
   transform: translateY(-2px);
 }
 
-/* Divider */
-
 .contact-divider {
   width: 100%;
   max-width: 620px;
@@ -191,10 +173,6 @@
 
   background: var(--border-color);
 }
-
-/* =========================
-   RESUME BUTTONS
-========================= */
 
 .contact-resume {
   display: flex;
@@ -261,10 +239,6 @@
   background: rgba(56, 189, 248, 0.07);
 }
 
-/* =========================
-   CONTACT FORM CARD
-========================= */
-
 .contact-form-card {
   width: 100%;
   min-width: 0;
@@ -291,8 +265,6 @@
     border-color 0.3s ease,
     box-shadow 0.3s ease;
 }
-
-/* Form heading */
 
 .contact-form-heading {
   display: flex;
@@ -339,10 +311,6 @@
   line-height: 1;
 }
 
-/* =========================
-   FORM FIELDS
-========================= */
-
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -375,8 +343,6 @@
   font-size: 17px;
   pointer-events: none;
 }
-
-/* Inputs */
 
 .contact-form input,
 .contact-form textarea {
@@ -432,15 +398,9 @@
   box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.12);
 }
 
-/* Message icon alignment */
-
 .message-wrapper .contact-input-icon {
   top: 17px;
 }
-
-/* =========================
-   SUBMIT BUTTON
-========================= */
 
 .contact-submit {
   width: 100%;
@@ -501,8 +461,6 @@
   box-shadow: none;
 }
 
-/* Backend note */
-
 .contact-form-note {
   margin: 4px 0 0;
 
@@ -511,10 +469,6 @@
   line-height: 1.7;
   text-align: center;
 }
-
-/* =========================
-   SUCCESS / ERROR MESSAGES
-========================= */
 
 .contact-success,
 .contact-error {
@@ -545,9 +499,6 @@
   color: #fca5a5;
 }
 
-/* =========================
-   TABLET
-========================= */
 
 @media (max-width: 1000px) {
   .contact {
@@ -574,9 +525,6 @@
   }
 }
 
-/* =========================
-   MOBILE
-========================= */
 
 @media (max-width: 760px) {
   .contact {
@@ -612,10 +560,6 @@
     border-radius: 19px;
   }
 }
-
-/* =========================
-   SMALL MOBILE
-========================= */
 
 @media (max-width: 420px) {
   .contact {
@@ -676,10 +620,6 @@
     font-size: 13px;
   }
 }
-
-/* =========================
-   ACCESSIBILITY
-========================= */
 
 @media (prefers-reduced-motion: reduce) {
   .contact,

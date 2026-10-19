@@ -1,16 +1,5 @@
-
 import React, { useState } from 'react';
-import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-  FaFilePdf,
-  FaFileWord,
-  FaArrowUpRightFromSquare,
-  FaDownload,
-  FaPaperPlane,
-  FaUser,
-} from 'react-icons/fa6';
+import {FaGithub, FaLinkedin, FaEnvelope, FaFilePdf, FaFileWord, FaArrowUpRightFromSquare, FaDownload, FaPaperPlane, FaUser} from 'react-icons/fa6';
 import './Contact.css';
 
 function Contact() {
@@ -76,8 +65,6 @@ function Contact() {
   return (
     <section className="contact" id="contact">
       <div className="contact-container">
-
-        {/* Left Side: Contact Information */}
 
         <div className="contact-info">
           <p className="contact-eyebrow">
