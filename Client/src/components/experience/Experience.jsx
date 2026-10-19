@@ -1,4 +1,3 @@
-
 import './Experience.css';
 
 function Experience() {
@@ -9,24 +8,15 @@ function Experience() {
       year: 'Summer 2026',
       title: 'IT / AI Intern',
       organization: 'Anytime Invest',
-      description:
-        'Worked on financial data processing and data engineering tasks involving Databricks, PySpark, SQL, and API development as part of the internship project.',
-      technologies: [
-        'Databricks',
-        'PySpark',
-        'SQL',
-        'Node.js',
-        'REST APIs',
-        'Data Mart',
-      ],
+      description: 'Worked on financial data processing and data engineering tasks involving Databricks, PySpark, SQL, and API development as part of the internship project.',
+      technologies: ['Databricks', 'PySpark', 'SQL', 'Node.js', 'REST APIs', 'Data Mart'],
+      certificateUrl: 'https://drive.google.com/file/d/1kDGjADrVZtEDieCrikhDleaDpGjR0mEP/view?usp=sharing',
     },
   ];
 
   return (
     <section className="experience" id="experience">
       <div className="experience-container">
-
-        {/* Section Heading */}
         <div className="experience-heading">
           <p className="section-subtitle">PROFESSIONAL JOURNEY</p>
 
@@ -40,7 +30,6 @@ function Experience() {
           </p>
         </div>
 
-        {/* Experience Timeline */}
         <div className="experience-timeline">
           {experiences.map((item, index) => (
             <article
@@ -51,13 +40,9 @@ function Experience() {
               <div className="experience-dot" />
 
               <div className="experience-card">
-                <span className="experience-type">
-                  {item.type}
-                </span>
+                <span className="experience-type">{item.type}</span>
 
-                <p className="experience-year">
-                  {item.year}
-                </p>
+                <p className="experience-year">{item.year}</p>
 
                 <h3>{item.title}</h3>
 
@@ -72,11 +57,21 @@ function Experience() {
                     <span key={tech}>{tech}</span>
                   ))}
                 </div>
+
+                <div className="experience-actions">
+                  <a
+                    href={item.certificateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="experience-certificate-btn"
+                  >
+                    View Certificate <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
               </div>
             </article>
           ))}
         </div>
-
       </div>
     </section>
   );

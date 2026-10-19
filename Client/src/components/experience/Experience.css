@@ -1,8 +1,3 @@
-
-/* =========================
-   EXPERIENCE SECTION
-========================= */
-
 .experience {
   position: relative;
   padding: 100px 8%;
@@ -28,7 +23,6 @@
     color 0.3s ease;
 }
 
-/* Subtle grid background */
 .experience::before {
   content: "";
   position: absolute;
@@ -55,10 +49,6 @@
   max-width: 1100px;
   margin: 0 auto;
 }
-
-/* =========================
-   SECTION HEADING
-========================= */
 
 .experience-heading {
   text-align: center;
@@ -106,10 +96,6 @@
   line-height: 1.8;
 }
 
-/* =========================
-   EXPERIENCE TIMELINE
-========================= */
-
 .experience-timeline {
   position: relative;
   max-width: 850px;
@@ -144,7 +130,6 @@
   margin-bottom: 0;
 }
 
-/* Timeline node */
 .experience-dot {
   position: absolute;
   top: 28px;
@@ -162,10 +147,6 @@
     0 0 0 2px rgba(56, 189, 248, 0.35),
     0 0 18px rgba(56, 189, 248, 0.15);
 }
-
-/* =========================
-   EXPERIENCE CARD
-========================= */
 
 .experience-card {
   position: relative;
@@ -194,7 +175,6 @@
     0 0 25px rgba(56, 189, 248, 0.04);
 }
 
-/* Experience type badge */
 .experience-type {
   display: inline-flex;
   align-items: center;
@@ -212,7 +192,6 @@
   letter-spacing: 0.5px;
 }
 
-/* Duration */
 .experience-year {
   margin: 16px 0 8px;
   color: var(--text-secondary);
@@ -220,7 +199,6 @@
   font-weight: 500;
 }
 
-/* Job title */
 .experience-card h3 {
   margin: 8px 0;
   color: var(--text-primary);
@@ -229,7 +207,6 @@
   line-height: 1.4;
 }
 
-/* Organization */
 .experience-card h4 {
   margin: 0 0 18px;
   color: #38bdf8;
@@ -238,7 +215,6 @@
   font-weight: 600;
 }
 
-/* Description */
 .experience-description {
   margin: 0;
 
@@ -246,10 +222,6 @@
   font-size: 15px;
   line-height: 1.9;
 }
-
-/* =========================
-   TECHNOLOGY TAGS
-========================= */
 
 .experience-tech {
   display: flex;
@@ -286,10 +258,6 @@
   border-color: rgba(56, 189, 248, 0.4);
 }
 
-/* =========================
-   ANIMATION
-========================= */
-
 @keyframes experienceFadeIn {
   from {
     opacity: 0;
@@ -302,10 +270,6 @@
   }
 }
 
-/* =========================
-   TABLET
-========================= */
-
 @media (max-width: 900px) {
   .experience {
     padding: 80px 6%;
@@ -315,10 +279,6 @@
     padding: 26px;
   }
 }
-
-/* =========================
-   MOBILE
-========================= */
 
 @media (max-width: 600px) {
   .experience {
@@ -378,7 +338,6 @@
   }
 }
 
-/* Small mobile */
 @media (max-width: 380px) {
   .experience {
     padding: 55px 5%;
@@ -389,7 +348,6 @@
   }
 }
 
-/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   .experience-item {
     animation: none;
@@ -397,6 +355,46 @@
 
   .experience-card,
   .experience-tech span {
+    transition: none;
+  }
+}
+
+
+.experience-actions {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.experience-certificate-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 11px 17px;
+
+  color: #ffffff;
+  background: linear-gradient(110deg, #4f46e5, #0284c7);
+
+  border: 1px solid transparent;
+  border-radius: 9px;
+
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.experience-certificate-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-certificate-btn {
     transition: none;
   }
 }

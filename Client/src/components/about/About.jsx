@@ -84,7 +84,7 @@ function About() {
               <div className="detail-item">
                 <span className="detail-label">Focus</span>
                 <span className="detail-value">
-                  MERN Stack Development
+                  FULL Stack Development
                 </span>
               </div>
             </div>

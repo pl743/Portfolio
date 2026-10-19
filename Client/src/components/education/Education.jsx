@@ -1,4 +1,3 @@
-
 import './Education.css';
 
 function Education() {
@@ -6,20 +5,20 @@ function Education() {
     {
       id: 1,
       type: 'Undergraduate',
-      year: '2024 – Present',
+      year: '2024 - Present',
       title: 'B.Tech in Computer Science & Engineering',
+      CGPA : '8.4',
       organization: 'JK Lakshmipat University',
-      description:
-        'Learning software development, data structures, databases, and modern web technologies while building practical projects.',
+      description: 'Learning software development, data structures, databases, and modern web technologies while building practical projects.',
     },
     {
       id: 2,
       type: 'Senior Secondary',
-      year: '2022 – 2024',
+      year: '2022 - 2024',
       title: 'Class XII',
+      CGPA: '91.20%',
       organization: 'Kota Career Science Education Center',
-      description:
-        'Completed senior secondary education before beginning undergraduate studies.',
+      description: 'Completed senior secondary education before beginning undergraduate studies.',
     },
   ];
 
@@ -27,7 +26,6 @@ function Education() {
     <section className="education" id="education">
       <div className="education-container">
 
-        {/* Section Heading */}
         <div className="education-heading">
           <p className="section-subtitle">ACADEMIC BACKGROUND</p>
 
@@ -40,7 +38,6 @@ function Education() {
           </p>
         </div>
 
-        {/* Education Timeline */}
         <div className="education-timeline">
           {educationItems.map((item, index) => (
             <article
@@ -62,6 +59,8 @@ function Education() {
                 <h3>{item.title}</h3>
 
                 <h4>{item.organization}</h4>
+
+                <h4>CGPA/Percentage : {item.CGPA}</h4>
 
                 <p className="education-description">
                   {item.description}
