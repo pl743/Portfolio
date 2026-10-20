@@ -30,7 +30,7 @@ function Contact() {
 
     try {
       const response = await fetch(
-        'http://localhost:8000/api/contact',
+        'https://portfolio-d34d.onrender.com/api/contact',
         {
           method: 'POST',
           headers: {
@@ -115,7 +115,7 @@ function Contact() {
 
           <div className="contact-resume">
             <a
-              href="http://localhost:8000/api/resume/pdf"
+              href="https://portfolio-d34d.onrender.com/api/resume/pdf"
               className="resume-button resume-primary"
             >
               <FaFilePdf />
@@ -124,7 +124,7 @@ function Contact() {
             </a>
 
             <a
-              href="http://localhost:8000/api/resume/docx"
+              href="https://portfolio-d34d.onrender.com/api/resume/docx"
               className="resume-button resume-secondary"
             >
               <FaFileWord />

@@ -64,7 +64,7 @@ function Hero() {
                     className="btn-secondary"
                     onClick={() => {
                       window.location.href =
-                        'http://localhost:8000/api/resume/pdf';
+                        'https://portfolio-d34d.onrender.com/api/resume/pdf';
                     }}
                   >
                     PDF
@@ -75,7 +75,7 @@ function Hero() {
                     className="btn-secondary"
                     onClick={() => {
                       window.location.href =
-                        'http://localhost:8000/api/resume/docx';
+                        'https://portfolio-d34d.onrender.com/api/resume/docx';
                     }}
                   >
                     Word
