@@ -31,7 +31,7 @@ const projects = [
     techStack: ['React', 'CSS', 'Node.js', 'Express.js', 'MongoDB'],
     github: 'https://github.com/pl743/Portfolio.git',
     demo: 'parth-lavti.vercel.app',
-    status: 'Project',
+    status: 'Project.',
   },
   {
     id: 4,
