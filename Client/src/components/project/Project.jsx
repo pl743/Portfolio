@@ -30,8 +30,8 @@ const projects = [
     description: 'A responsive portfolio website showcasing my skills, projects, education and experience, with resume downloads and a contact section.',
     techStack: ['React', 'CSS', 'Node.js', 'Express.js', 'MongoDB'],
     github: 'https://github.com/pl743/Portfolio.git',
-    demo: '',
-    status: 'In Progress',
+    demo: 'parth-lavti.vercel.app',
+    status: 'Project',
   },
   {
     id: 4,
