@@ -19,10 +19,14 @@ export const createContact = async (req, res) => {
       });
     }
 
+    const cleanName = name.trim();
+    const cleanEmail = email.trim();
+    const cleanMessage = message.trim();
+
     if (
-      name.trim().length > 100 ||
-      email.trim().length > 254 ||
-      message.trim().length > 2000
+      cleanName.length > 100 ||
+      cleanEmail.length > 254 ||
+      cleanMessage.length > 2000
     ) {
       return res.status(400).json({
         success: false,
@@ -31,32 +35,36 @@ export const createContact = async (req, res) => {
     }
 
     const contact = await Contact.create({
-      name: name.trim(),
-      email: email.trim(),
-      message: message.trim(),
+      name: cleanName,
+      email: cleanEmail,
+      message: cleanMessage,
     });
 
-    try {
-      await transporter.sendMail({
+    transporter
+      .sendMail({
         from: process.env.EMAIL_USER,
         to: process.env.EMAIL_USER,
-        replyTo: email.trim(),
-        subject: `New Portfolio Message from ${name.trim()}`,
-        text: `You have received a new message from your portfolio. Name: ${name.trim()} Email: ${email.trim()} Message: ${message.trim()}`,
-      });
+        replyTo: cleanEmail,
+        subject: `New Portfolio Message from ${cleanName}`,
+        text: `New portfolio message
 
-      console.log('Contact notification email sent successfully');
-    } catch (emailError) {
-      // Keep the saved message even if email delivery fails
-      console.error(
-        'Email notification failed:',
-        emailError.message
-      );
-    }
+        Name: ${cleanName}
+        Email: ${cleanEmail}
+        Message: ${cleanMessage}`,
+      })
+      .then(() => {
+        console.log('Contact notification email sent successfully');
+      })
+      .catch((emailError) => {
+        console.error(
+          'Email notification failed:',
+          emailError.message
+        );
+      });
 
     return res.status(201).json({
       success: true,
-      message: 'Your message has been sent successfully!',
+      message: 'Your message has been saved successfully!',
       contactId: contact._id,
     });
 
