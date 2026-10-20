@@ -5,6 +5,8 @@ import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import './Hero.css';
 
 function Hero() {
+  const API_URL = import.meta.env.VITE_API_URL;
+  
   const [resumeOptions, setResumeOptions] = useState(false);
 
   return (
@@ -64,7 +66,7 @@ function Hero() {
                     className="btn-secondary"
                     onClick={() => {
                       window.location.href =
-                        'https://portfolio-d34d.onrender.com/api/resume/pdf';
+                        `${API_URL}/api/resume/pdf`;
                     }}
                   >
                     PDF
@@ -75,7 +77,7 @@ function Hero() {
                     className="btn-secondary"
                     onClick={() => {
                       window.location.href =
-                        'https://portfolio-d34d.onrender.com/api/resume/docx';
+                        `${API_URL}/api/resume/docx`;
                     }}
                   >
                     Word

@@ -3,6 +3,8 @@ import {FaGithub, FaLinkedin, FaEnvelope, FaFilePdf, FaFileWord, FaArrowUpRightF
 import './Contact.css';
 
 function Contact() {
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,7 +32,7 @@ function Contact() {
 
     try {
       const response = await fetch(
-        'https://portfolio-d34d.onrender.com/api/contact',
+        `${API_URL}/api/contact`,
         {
           method: 'POST',
           headers: {
@@ -115,7 +117,7 @@ function Contact() {
 
           <div className="contact-resume">
             <a
-              href="https://portfolio-d34d.onrender.com/api/resume/pdf"
+              href={`${API_URL}/api/resume/pdf`}
               className="resume-button resume-primary"
             >
               <FaFilePdf />
@@ -124,7 +126,7 @@ function Contact() {
             </a>
 
             <a
-              href="https://portfolio-d34d.onrender.com/api/resume/docx"
+              href={`${API_URL}/api/resume/docx`}
               className="resume-button resume-secondary"
             >
               <FaFileWord />
